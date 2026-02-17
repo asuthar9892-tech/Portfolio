@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adarsh Sutar | Web Developer</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0f172a;
+            color: #fff;
+        }
+
+        /* ================= SIDEBAR ================= */
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 240px;
+            height: 100vh;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar h2 {
+            font-size: 22px;
+            margin-bottom: 50px;
+            background: linear-gradient(45deg, #7c3aed, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sidebar a {
+            display: block;
+            margin: 15px 0;
+            padding: 12px 15px;
+            color: #cbd5e1;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: linear-gradient(45deg, #7c3aed, #3b82f6);
+            color: #fff;
+            transform: translateX(5px);
+        }
+
+        /* ================= MAIN ================= */
+
+        .main {
+            margin-left: 240px;
+            padding: 0 8%;
+        }
+
+        /* Sections */
+
+        section {
+            padding: 100px 0;
+            min-height: 100vh;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.8s ease;
+        }
+
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* HERO */
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+        }
+
+        .hero span {
+            background: linear-gradient(45deg, #7c3aed, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            margin: 20px 0;
+            max-width: 650px;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(45deg, #7c3aed, #3b82f6);
+            border-radius: 30px;
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.07);
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.6);
+        }
+
+        /* Headings */
+
+        .heading {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .heading span {
+            color: #7c3aed;
+        }
+
+        /* Skills */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skills span {
+            padding: 10px 18px;
+            background: #1e293b;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        .skills span:hover {
+            background: linear-gradient(45deg, #7c3aed, #3b82f6);
+            transform: translateY(-5px);
+        }
+
+        /* Portfolio */
+
+        .portfolio-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        }
+
+        .overlay a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 6px 14px;
+            background: #7c3aed;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 13px;
+        }
+
+        /* Contact */
+
+        .contact-info p {
+            margin: 10px 0;
+            color: #cbd5e1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1e293b;
+        }
+
+        /* Responsive */
+
+        @media(max-width:900px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .main {
+                margin-left: 200px;
+            }
+        }
+
+        @media(max-width:768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                text-align: center;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .main {
+                margin-left: 0;
+                padding: 0 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2>Adarsh Sutar</h2>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div class="main">
+
+        <section id="home" class="hero">
+            <h1>Hi, I'm <span>Adarsh Sutar</span></h1>
+            <p>
+                Professional Web Developer specializing in WordPress, Shopify,
+                PHP, JavaScript & high-conversion business websites.
+            </p>
+            <a href="#portfolio" class="btn">View My Work</a>
+        </section>
+
+        <section id="about">
+            <h1 class="heading">About <span>Me</span></h1>
+            <p>BSc Computer Science graduate with strong expertise in WordPress,
+                Shopify, PHP, HTML, CSS, JavaScript and UI/UX (Figma).</p>
+
+            <div class="skills">
+                <span>WordPress</span>
+                <span>Shopify</span>
+                <span>PHP</span>
+                <span>JavaScript</span>
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>UI/UX (Figma)</span>
+                <span>API Integration</span>
+                <span>SEO</span>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <h1 class="heading">My <span>Projects</span></h1>
+            <div class="portfolio-container">
+                <div class="portfolio-card">
+                    <img src="images/project1.jpg">
+                    <div class="overlay">
+                        <h3>Passion Indulge</h3>
+                        <a href="#">Visit Site</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h1 class="heading">Contact <span>Me</span></h1>
+            <div class="contact-info">
+                <p>Email: asuthar9892@gmail.com</p>
+                <p>Phone: +91 9892239451</p>
+                <p>Mumbai, Maharashtra</p>
+            </div>
+        </section>
+
+        <footer>
+            © 2026 Adarsh Sutar | Web Developer
+        </footer>
+
+    </div>
+
+    <script>
+        const sections = document.querySelectorAll("section");
+
+        window.addEventListener("scroll", () => {
+            sections.forEach(section => {
+                const top = section.getBoundingClientRect().top;
+                if (top < window.innerHeight - 100) {
+                    section.classList.add("show");
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
